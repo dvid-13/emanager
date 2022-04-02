@@ -1,5 +1,5 @@
 # eManager
-[![Creado por BJG Ingenieros](https://bjgingenieros.com/wp-content/uploads/2022/04/logo-e1648932413862.png)](https://bjgingenieros.com)
+[![Creado por BJG Ingenieros](https://bjgingenieros.com/wp-content/uploads/2022/04/logo-e1648933452913.png)](https://bjgingenieros.com)
 ## Docker
 
 ### Servicios necesarios
@@ -11,9 +11,8 @@
 | Node-RED | [Node-RED 2.2.2](https://hub.docker.com/r/nodered/node-red) |
 | EMQX | [EMQX 3.0.1](https://hub.docker.com/r/emqx/emqx) |
 | Mosquitto | [Eclipse Mosquitto 2.0.14](https://hub.docker.com/_/eclipse-mosquitto) |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
 
-### Instalar Docker en el eManager: 
+### Instalar *Docker* en el eManager: 
 
 ```sh
 opkg install docker-ce
@@ -21,17 +20,18 @@ opkg install python3-docker-compose
 ```
 
 
-### Instalar git:
+### Instalar *git*:
 
 ```sh
 opkg install git
 ```
 
-### Descarga el repositorio de GitHub
+### Descarga el repositorio de *GitHub*
 
 ```sh
 git clone https://github.com/dvid-13/eManager.git
 ```
+*A continuación, ingrese los datos de GutHub*
 
 ### Agregar permisos necesarios para el docker-compose:
 
@@ -45,8 +45,15 @@ chmod -R 777 emanager
 cd emanager
 ```
 
-### Crear imagen para el servicio Node-RED
+### Crear imagen para el servicio *Node-RED*
 
 ```sh
 docker build -t node-red-a:1.0 .
 ```
+
+### Defina el servicio que necesita para *mqtt*, ya sea *EMQX* o *Mosquitto*
+
+```sh
+nano docker-compose.yml
+```
+*A continuación, edite los # que aparecen al inicio de cada uno de estos servicios, siendo excluyentes entre ellos, es decir,*
