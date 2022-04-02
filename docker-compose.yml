@@ -1,0 +1,96 @@
+version: "3.6"
+
+volumes:
+  emqx/data:
+    name: emqx-data
+  emqx/etc:
+    name: emqx-etc
+  emqx/log:
+    name: emqx-log
+#  influxdb:
+#    name: InfluxDB
+#  grafana:
+#    name: Grafana
+
+services:
+  influxdb:
+    container_name: influxdb
+    image: influxdb:1.8.10
+    restart: always
+    networks:
+      - bridge
+    ports:
+      - 8086:8086
+    volumes:
+      - ./influxdb:/var/lib/influxdb
+    environment:
+      INFLUXDB_DB: data
+      INFLUXDB_HTTP_FLUX_ENABLED: "true"
+
+  grafana:
+    container_name: Grafana
+    restart: always
+    image: grafana/grafana-oss:8.4.5
+    networks:
+      - bridge
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana:/var/lib/grafana
+      - ./provisioning/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+      - ./provisioning/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./provisioning/dashboards:/var/lib/grafana/dashboards
+    environment:
+      GF_INSTALL_PLUGINS: "marcusolsson-hourly-heatmap-panel"
+
+  nodered:
+    container_name: node-red
+    restart: always
+    image: node-red-a:1.0
+    user: root
+    networks:
+      - bridge
+    ports:
+      - 1882:1880
+    volumes:
+      - ./nrdata:/data
+    devices:
+      - /dev/ttymxc4:/dev/ttymxc4
+
+# Development
+  emqx:
+    container_name: mqtt
+    image: emqx/emqx:v3.0.1
+    restart: always
+    networks:
+      - bridge
+    ports:
+      - 18083:18083
+      - 8083:8083
+      - 1883:1883
+      - 8084:8084
+    environment:
+      EMQX_NAME: broker
+      EMQX_HOST: 127.0.0.1
+    volumes:
+      - emqx/data:/opt/emqx/data
+      - emqx/etc:/opt/emqx/etc
+      - emqx/log:/opt/emqx/log
+
+# Production
+#  mosquitto:
+#    container_name: mqtt
+#    image: eclipse-mosquitto:2.0.14
+#    restart: always
+#    networks:
+#      - bridge
+#    ports:
+#      - 1883:1883
+#    volumes:
+#      - ./mosquitto:/mosquitto/
+
+networks:
+  bridge:
+    driver: bridge
+
+# POST http://emanager-address/query?chunked=true&db=&epoch=ns&q=create+database+data"
