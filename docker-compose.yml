@@ -1,14 +1,14 @@
 version: "3.6"
 
 volumes:
-  emqx/data:
+  vol-emqx-data:
     name: emqx-data
-  emqx/etc:
+  vol-emqx-etc:
     name: emqx-etc
-  emqx/log:
+  vol-emqx-log:
     name: emqx-log
-#  influxdb:
-#    name: InfluxDB
+  influxdb:
+    name: InfluxDB
 #  grafana:
 #    name: Grafana
 
@@ -22,9 +22,11 @@ services:
     ports:
       - 8086:8086
     volumes:
-      - ./influxdb:/var/lib/influxdb
+      - influxdb:/var/lib/influxdb
     environment:
       INFLUXDB_DB: data
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: influxdb
       INFLUXDB_HTTP_FLUX_ENABLED: "true"
 
   grafana:
@@ -73,9 +75,9 @@ services:
       EMQX_NAME: broker
       EMQX_HOST: 127.0.0.1
     volumes:
-      - emqx/data:/opt/emqx/data
-      - emqx/etc:/opt/emqx/etc
-      - emqx/log:/opt/emqx/log
+      - vol-emqx-data:/opt/emqx/data
+      - vol-emqx-etc:/opt/emqx/etc
+      - vol-emqx-log:/opt/emqx/log
 
 # Production
 #  mosquitto:
