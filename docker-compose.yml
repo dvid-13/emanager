@@ -33,6 +33,7 @@ services:
     container_name: Grafana
     restart: always
     image: grafana/grafana-oss:8.4.5
+    user: root
     networks:
       - bridge
     ports:
