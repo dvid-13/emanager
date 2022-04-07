@@ -61,24 +61,24 @@ services:
       - /dev/ttymxc4:/dev/ttymxc4
 
 # Development
-  emqx:
-    container_name: mqtt
-    image: emqx/emqx:v3.0.1
-    restart: always
-    networks:
-      - bridge
-    ports:
-      - 18083:18083
-      - 8083:8083
-      - 1883:1883
-      - 8084:8084
-    environment:
-      EMQX_NAME: broker
-      EMQX_HOST: 127.0.0.1
-    volumes:
-      - vol-emqx-data:/opt/emqx/data
-      - vol-emqx-etc:/opt/emqx/etc
-      - vol-emqx-log:/opt/emqx/log
+#  emqx:
+#    container_name: mqtt
+#    image: emqx/emqx:v3.0.1
+#    restart: always
+#    networks:
+#      - bridge
+#    ports:
+#      - 18083:18083
+#      - 8083:8083
+#      - 1883:1883
+#      - 8084:8084
+#    environment:
+#      EMQX_NAME: broker
+#      EMQX_HOST: 127.0.0.1
+#    volumes:
+#      - vol-emqx-data:/opt/emqx/data
+#      - vol-emqx-etc:/opt/emqx/etc
+#      - vol-emqx-log:/opt/emqx/log
 
 # Production
 #  mosquitto:
