@@ -60,7 +60,7 @@ docker build -t node-red-a:1.0 .
 nano docker-compose.yml
 ```
 *A continuación, edite los # que aparecen al inicio de cada uno de estos servicios,
-siendo excluyentes entre ellos, es decir, si habilita Mosquitto, deshabilite emqx*
+siendo excluyentes entre ellos, es decir, si habilita Mosquitto, deshabilite EMQX*
 
 ### Corra los servicios con *docker-compose*
 
