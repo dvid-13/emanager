@@ -32,7 +32,7 @@ opkg install git
 ### Descarga el repositorio de *GitHub*
 
 ```sh
-git clone https://github.com/dvid-13/eManager.git
+git clone https://github.com/dvid-13/emanager.git
 ```
 *A continuación, ingrese los datos de GitHub*
 
