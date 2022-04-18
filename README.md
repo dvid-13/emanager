@@ -34,7 +34,7 @@ opkg install git
 ```sh
 git clone https://github.com/dvid-13/eManager.git
 ```
-*A continuación, ingrese los datos de GutHub*
+*A continuación, ingrese los datos de GitHub*
 
 ### Agregar permisos necesarios para el docker-compose:
 
