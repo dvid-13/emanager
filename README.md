@@ -96,7 +96,7 @@ docker exec -it influxdb influx -execute 'SHOW DATABASES'
 
 ### Editar servicios
 
-Una vez creado los servicios, se pueden editar la programación de Node-RED y a los dashboards de Grafana ingresando los [puertos predeterminados](https://github.com/dvid-13/eManager/edit/master/README.md#comprobaci%C3%B3n-de-servicios) según convenga.
+Una vez creado los servicios, se pueden editar la programación de Node-RED y a los dashboards de Grafana ingresando los [puertos predeterminados](https://github.com/dvid-13/eManager/blob/master/README.md#comprobaci%C3%B3n-de-servicios) según convenga.
 
 
 
