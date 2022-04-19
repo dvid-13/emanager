@@ -11,7 +11,7 @@
 | ------ | ------ |
 | InfluxDB | [InfluxDB 1.8.10](https://hub.docker.com/_/influxdb) |
 | Grafana | [Grafana 8.4.5](https://hub.docker.com/r/grafana/grafana) |
-| Node-RED | [Node-RED 2.2.2](https://hub.docker.com/r/nodered/node-red) |
+| Node-RED | [Node-RED 2.2.2](https://hub.docker.com/r/nodered/node-red) [eManager](https://hub.docker.com/r/dmunozbjg/node-red-a) |
 | EMQX | [EMQX 3.0.1](https://hub.docker.com/r/emqx/emqx) |
 | Mosquitto | [Eclipse Mosquitto 2.0.14](https://hub.docker.com/_/eclipse-mosquitto) |
 
