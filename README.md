@@ -51,8 +51,9 @@ cd emanager
 ### Crear imagen para el servicio *Node-RED*
 
 ```sh
-docker build -t node-red-a:1.0 .
+docker build -t dmunozbjg/node-red-a:1.0 .
 ```
+*Este paso no es necesario*
 
 ### Defina el servicio que necesita para *mqtt*, ya sea *EMQX* o *Mosquitto*
 
