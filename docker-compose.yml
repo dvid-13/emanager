@@ -49,7 +49,7 @@ services:
   nodered:
     container_name: node-red
     restart: always
-    image: node-red-a:1.0
+    image: dmunozbjg/node-red-a:1.0
     user: root
     networks:
       - bridge
