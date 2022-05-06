@@ -1,4 +1,4 @@
-FROM nodered/node-red:2.2.2
+FROM nodered/node-red:2.2.2-12
 
 RUN npm install \
     node-red-dashboard \
