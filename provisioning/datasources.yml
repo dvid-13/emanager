@@ -13,3 +13,9 @@ datasources:
       version: Flux
       organization: myorg
       defaultBucket: data
+      
+  - name: Influxql
+    type: influxdb
+    access: proxy
+    database: data
+    url: http://influxdb:8086
