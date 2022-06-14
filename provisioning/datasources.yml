@@ -17,5 +17,6 @@ datasources:
   - name: Influxql
     type: influxdb
     access: proxy
-    database: data
     url: http://influxdb:8086
+    editable: true
+    database: data
